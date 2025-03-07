@@ -8,7 +8,7 @@
         <p class="text-lg ml-auto">Release date: TBA</p>
     </div>
 
-    <div class="mt-8 md:mt-32">
+    <div class="mt-8 md:my-auto">
         <Progress />
     </div>
 </div>
