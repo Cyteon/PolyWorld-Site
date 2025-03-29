@@ -2,6 +2,11 @@
     import Progress from "$lib/components/Progress.svelte";
 </script>
 
+<svelte:head>
+    <title>PolyWorld</title>
+    <meta name="og:url" content="https://polyworld.xyz" />
+</svelte:head>
+
 <div class="min-h-screen flex flex-col w-full">
     <div class="mt-4 w-fit mx-auto flex flex-col items-center">
         <h1 class="text-6xl font-bold">PolyWorld</h1>

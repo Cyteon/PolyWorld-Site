@@ -23,15 +23,6 @@
 
 <a href="/blogs" class="absolute top-1 left-2 text-blue-300">Back to Blogs</a>
 
-<svelte:head>
-    <title>{post.title} | PolyWorld</title>
-    <meta name="description" content={post.desc} />
-    <meta property="og:title" content={post.title} />
-    <meta property="og:description" content={post.desc} />
-    <meta property="og:image" content={post.thumbnail} />
-    <meta property="og:url" content={`https://polyworld.dev/blogs/${data.slug}`} />
-</svelte:head>
-
 {#if Object.keys(post).length > 0}
     <div class="flex min-h-screen px-1">
         <div class="mx-auto flex flex-col">
