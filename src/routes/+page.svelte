@@ -5,6 +5,8 @@
 <svelte:head>
     <title>PolyWorld</title>
     <meta name="og:url" content="https://polyworld.xyz" />
+    <meta name="og:title" content="PolyWorld" />
+    <meta name="og:description" content="A low-poly open-world multiplayer indie game. Currently in early development." />
 </svelte:head>
 
 <div class="min-h-screen flex flex-col w-full">
