@@ -4,7 +4,7 @@ export async function GET() {
     const posts = await BlogPost.find().sort({ createdAt: -1 });
     
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap-image/1.1">
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
         <url>
             <loc>${import.meta.env.VITE_SITE_URL}</loc>
             <lastmod>2025-03-30T11:08:02.588Z</lastmod>
