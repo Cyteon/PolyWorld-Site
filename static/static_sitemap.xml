@@ -1,16 +1,16 @@
 <urlset>
     <url>
-        <loc>http://localhost:5173</loc>
+        <loc>https://polyworld.xyz</loc>
         <lastmod>2025-03-30T11:08:02.588Z</lastmod>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>http://localhost:5173/blogs</loc>
+        <loc>https://polyworld.xyz/blogs</loc>
         <lastmod>2025-03-29T11:31:11.484Z</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://localhost:5173/blogs/hello_world</loc>
+        <loc>https://polyworld.xyz/blogs/hello_world</loc>
         <lastmod>2025-03-29T11:31:11.484Z</lastmod>
         <priority>0.7</priority>
     </url>
