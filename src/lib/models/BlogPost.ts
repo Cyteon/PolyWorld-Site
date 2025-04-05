@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-export interface IBlogPost{
+export interface IBlogPost {
     createdAt: Date;
     title: string;
     content: string;
