@@ -1,18 +1,16 @@
 <script lang="ts">
     import Progress from "$lib/components/Progress.svelte";
-
-    const emailRegex: RegExp =
-        /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    import isValidEmail from "$lib/emailValidator";
 
     let email: string = "";
     let error: string = "";
-    let submitted: boolean = false;
+    let success: boolean = false;
 
     async function submitEmail() {
         error = "";
-        submitted = false;
+        success = false;
 
-        if (emailRegex.test(email)) {
+        if (isValidEmail(email)) {
             const res = await fetch("/api/emails", {
                 method: "PUT",
                 body: JSON.stringify({ email }),
@@ -22,7 +20,7 @@
             });
 
             if (res.ok) {
-                submitted = true;
+                success = true;
             } else {
                 const data = await res.json();
                 error = data.message || "Failed to submit email.";
@@ -55,7 +53,7 @@
                 placeholder="Enter your email"
                 bind:value={email}
                 class={`p-2 border border-neutral-700 bg-neutral-800 rounded outline-none 
-                    ${error ? "border-red-400" : ""} ${submitted ? "border-green-300" : ""}
+                    ${error ? "border-red-400" : ""} ${success ? "border-green-300" : ""}
                 }`}
             />
             <button
