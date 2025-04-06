@@ -12,9 +12,11 @@ const limiters = {
             cookie: {
                 name: LIMITER_COOKIE_NAME,
                 secret: LIMITER_COOKIE_SECRET,
-                rate: [[2, "h"], [4, "6h"], [8, "d"]],
+                rate: [[2, "h"], [4, "12h"], [6, "d"]],
                 preflight: false,
-              },
+            },
+            IPUA: [[2, "h"], [4, "12h"], [6, "d"]],
+            IP: [[2, "h"], [6, "12h"], [8, "d"]], // allow more incase like school IP
         }),
         methods: ["PUT"],
     },
