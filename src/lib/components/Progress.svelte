@@ -3,7 +3,7 @@
         {
             completed: true,
             title: "Development Started",
-            percentageToNext: 50
+            percentageToNext: 80
         },
         {
             completed: false,
