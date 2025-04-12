@@ -82,8 +82,8 @@
     </div>
 
     <footer class="mb-4 mt-auto mx-auto flex flex-row items-center text-lg">
-        <a href="/blogs" class="text-blue-300 underline">Blogs</a>
+        <a href="/blogs" class="text-blue-300 underline mr-1">Blogs</a>
         -
-        <a href="https://discord.gg/bDG54msgvb" class="text-blue-300 underline">Discord</a>
+        <a href="https://discord.gg/bDG54msgvb" class="ml-1 text-blue-300 underline">Discord</a>
     </footer>
 </div>
