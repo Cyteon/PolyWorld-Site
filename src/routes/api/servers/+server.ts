@@ -9,7 +9,8 @@ export async function POST({ request }) {
         players,
         name,
         version,
-        compatability_ver
+        compatability_ver,
+        secure,
     } = await request.json();
 
     const existing_server = await Server.findOne({ unique_id });
@@ -24,6 +25,7 @@ export async function POST({ request }) {
                 name,
                 version,
                 compatability_ver,
+                secure,
                 last_online: new Date()
             });
     } else {
@@ -36,6 +38,7 @@ export async function POST({ request }) {
             name,
             version,
             compatability_ver,
+            secure,
             last_online: new Date()
         });
     }
@@ -59,6 +62,7 @@ export async function GET({}) {
             name: server.name,
             version: server.version,
             compatability_ver: server.compatability_ver,
+            secure: server.secure,
         }
     })), {
         headers: {
