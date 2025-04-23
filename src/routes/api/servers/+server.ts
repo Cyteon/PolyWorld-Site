@@ -46,12 +46,37 @@ export async function POST({ request }) {
     return new Response("OK")
 }
 
-export async function GET({}) {
-    const servers = await Server.find({
+export async function GET({ url }) {
+    const { searchParams } = url;
+
+    const secure_only = searchParams.get("secure_only") === "true";
+    const unsecure_only = searchParams.get("secure_only") === "false";
+    const exclude_full = searchParams.get("exclude_full") === "true";
+    const exclude_empty = searchParams.get("exclude_empty") === "true";
+
+    let query = {
         last_online: {
             $gt: new Date(new Date().getTime() - 60000 * 6) // 6 minutes
-        }   
-    })
+        }
+    };
+
+    if (secure_only) {
+        query.secure = true;
+    }
+
+    if (unsecure_only) {
+        query.secure = false;
+    }
+
+    if (exclude_full) {
+        query["$expr"] = { $lt: ["$players", "$max_players"] };
+    }
+
+    if (exclude_empty) {
+        query.players = { $gt: 0 };
+    }
+
+    const servers = await Server.find(query)
 
     return new Response(JSON.stringify(servers.map((server) => {
         return {
