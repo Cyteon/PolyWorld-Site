@@ -50,7 +50,7 @@ export async function GET({ url }) {
     const { searchParams } = url;
 
     const secure_only = searchParams.get("secure_only") === "true";
-    const unsecure_only = searchParams.get("secure_only") === "false";
+    const unsecure_only = searchParams.get("unsecure_only") === "true";
     const exclude_full = searchParams.get("exclude_full") === "true";
     const exclude_empty = searchParams.get("exclude_empty") === "true";
 
